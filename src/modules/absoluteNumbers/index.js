@@ -8,10 +8,10 @@ import { Box } from "../../components";
 const AbsoluteNumbers = ({ data }) => {
   return (
     <div className={style["absoluteNumber"]}>
-      <Box title="Casos confirmados" {...data.confirmed} color="#0fb9b1" />
-      <Box title="Casos ativos" {...data.active} color="#fa8231" />
+      <Box title="Confirmados" {...data.confirmed} color="#0fb9b1" />
+      <Box title="Em recuperação" {...data.active} color="#fa8231" />
       <Box
-        title="Casos recuperados"
+        title="Recuperados"
         {...data.recovered}
         color="#26de81"
         upIsGood={true}
