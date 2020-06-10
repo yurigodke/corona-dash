@@ -8,12 +8,22 @@ const Footer = () => {
       <div>
         Desenvolvido por{" "}
         <strong>
-          <a href="mailto:talkto@yurigodke.com">Yuri Godke</a>
+          <a
+            href="mailto:talkto@yurigodke.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Yuri Godke
+          </a>
         </strong>
       </div>
       <div>
         Fonte{" "}
-        <a href="http://www.prefeituradeatibaia.com.br/categoria/saude/">
+        <a
+          href="http://www.prefeituradeatibaia.com.br/categoria/saude/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Prefeitura de Atibaia
         </a>
       </div>
