@@ -3,4 +3,11 @@
   background: #fff;
   border-radius: 20px;
   margin: 30px 20px;
+
+  &__title {
+    font-family: "Maven Pro", sans-serif;
+    color: #190f52;
+    font-weight: bold;
+    font-size: 24px;
+  }
 }

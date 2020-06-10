@@ -6,7 +6,7 @@ import style from "./index.module.scss";
 const ChartBox = ({ title, children }) => {
   return (
     <div className={style["chartBox"]}>
-      <h2 className={style["title"]}>{title}</h2>
+      <h2 className={style["chartBox__title"]}>{title}</h2>
       {children}
     </div>
   );

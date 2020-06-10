@@ -3,7 +3,7 @@ import React from "react";
 import style from "./App.module.scss";
 import { Line } from "react-chartjs-2";
 
-import { AbsoluteNumbers, ChartBox } from "./modules";
+import { AbsoluteNumbers, ChartBox, Footer } from "./modules";
 
 import data from "./prepareData.js";
 
@@ -26,6 +26,7 @@ function App() {
       <ChartBox title="Ocupação de leitos e pessoas em tratamento">
         <Line data={data.hospital}></Line>
       </ChartBox>
+      <Footer />
     </div>
   );
 }

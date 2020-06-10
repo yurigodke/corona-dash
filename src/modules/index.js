@@ -1,4 +1,5 @@
 import AbsoluteNumbers from "./absoluteNumbers";
 import ChartBox from "./chartBox";
+import Footer from "./footer";
 
-export { AbsoluteNumbers, ChartBox };
+export { AbsoluteNumbers, ChartBox, Footer };
