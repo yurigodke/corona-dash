@@ -1,0 +1,26 @@
+.App {
+  text-align: left;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  &__title {
+    padding: 0 60px;
+    font-family: "Maven Pro", sans-serif;
+    color: #a55eea;
+    font-size: 38px;
+
+    &__locate {
+      font-family: "Lato", sans-serif;
+      color: #190f52;
+      font-size: 24px;
+
+      &:before {
+        display: inline-block;
+        height: 20px;
+        content: "";
+        border-left: 1px #190f52 solid;
+        margin: 0 10px 0 4px;
+      }
+    }
+  }
+}
