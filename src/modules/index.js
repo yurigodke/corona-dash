@@ -1,3 +1,4 @@
 import AbsoluteNumbers from "./absoluteNumbers";
+import ChartBox from "./chartBox";
 
-export { AbsoluteNumbers };
+export { AbsoluteNumbers, ChartBox };

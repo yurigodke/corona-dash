@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import style from "./index.module.scss";
 
@@ -18,6 +19,10 @@ const AbsoluteNumbers = ({ data }) => {
       <Box title="Óbitos" {...data.death} color="#eb3b5a" />
     </div>
   );
+};
+
+AbsoluteNumbers.propTypes = {
+  fata: PropTypes.object
 };
 
 export default AbsoluteNumbers;

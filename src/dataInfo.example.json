@@ -1,0 +1,22 @@
+{
+  "08/06/2020": {
+    "notified": 425,
+    "discarted": 275,
+    "confirmed": 112,
+    "recovered": 87,
+    "waitResult": 30,
+    "suspectDeath": 7,
+    "death": 4,
+    "nursery": 3,
+    "icu": 2
+  },
+  "09/06/2020": {
+    "notified": 435,
+    "discarted": 288,
+    "confirmed": 113,
+    "recovered": 89,
+    "waitResult": 34,
+    "suspectDeath": 5,
+    "death": 4
+  }
+}

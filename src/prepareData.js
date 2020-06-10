@@ -209,7 +209,7 @@ const icuValues = {
 };
 
 const activeValues = {
-  label: "Ativos",
+  label: "Em tratamento",
   fill: false,
   lineTension: 0.5,
   borderColor: "#45aaf2",

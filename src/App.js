@@ -3,7 +3,7 @@ import React from "react";
 import style from "./App.module.scss";
 import { Line } from "react-chartjs-2";
 
-import { AbsoluteNumbers } from "./modules";
+import { AbsoluteNumbers, ChartBox } from "./modules";
 
 import data from "./prepareData.js";
 
@@ -14,10 +14,18 @@ function App() {
         Covid-19 <span className={style["App__title__locate"]}>Atibaia</span>
       </h1>
       <AbsoluteNumbers data={data.consolidated} />
-      <Line data={data.general}></Line>
-      <Line data={data.balance}></Line>
-      <Line data={data.death}></Line>
-      <Line data={data.hospital}></Line>
+      <ChartBox title="Casos e óbitos diários">
+        <Line data={data.general}></Line>
+      </ChartBox>
+      <ChartBox title="Notificação de casos">
+        <Line data={data.balance}></Line>
+      </ChartBox>
+      <ChartBox title="Óbitos e recuperados">
+        <Line data={data.death}></Line>
+      </ChartBox>
+      <ChartBox title="Ocupação de leitos e pessoas em tratamento">
+        <Line data={data.hospital}></Line>
+      </ChartBox>
     </div>
   );
 }
