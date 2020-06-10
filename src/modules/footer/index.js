@@ -6,7 +6,10 @@ const Footer = () => {
   return (
     <div className={style["footer"]}>
       <div>
-        Desenvolvido por <strong>Yuri Godke</strong>
+        Desenvolvido por{" "}
+        <strong>
+          <a href="mailto:talkto@yurigodke.com">Yuri Godke</a>
+        </strong>
       </div>
       <div>
         Fonte{" "}
