@@ -3,18 +3,38 @@ import PropTypes from "prop-types";
 
 import style from "./index.module.scss";
 
-const Box = ({ title, info, diff }) => {
+const Box = ({ title, value, diff, color = null, upIsGood = false }) => {
   const diffScreen = diff.toString() + "%";
-  const diffIndicator =
-    diff > 0 ? (
-      <i className={style["box__diff__negative"]}></i>
-    ) : (
-      <i className={style["box__diff__positive"]}></i>
-    );
+  let diffIndicator = null;
+
+  if (diff !== 0) {
+    if (upIsGood) {
+      diffIndicator =
+        diff > 0 ? (
+          <i className={style["box__diff__negative__invert"]}></i>
+        ) : (
+          <i className={style["box__diff__positive__invert"]}></i>
+        );
+    } else {
+      diffIndicator =
+        diff > 0 ? (
+          <i className={style["box__diff__negative"]}></i>
+        ) : (
+          <i className={style["box__diff__positive"]}></i>
+        );
+    }
+  }
+
+  const infoCustomStyle = {};
+  if (color) {
+    infoCustomStyle.color = color;
+  }
   return (
     <div className={style["box"]}>
       <div className={style["box__title"]}>{title}</div>
-      <div className={style["box__info"]}>{info}</div>
+      <div className={style["box__info"]} style={infoCustomStyle}>
+        {value}
+      </div>
       <div className={style["box__diff"]}>
         <span>{diffScreen}</span>
         {diffIndicator}
@@ -25,8 +45,10 @@ const Box = ({ title, info, diff }) => {
 
 Box.propTypes = {
   title: PropTypes.string.isRequired,
-  info: PropTypes.number.isRequired,
-  diff: PropTypes.number
+  value: PropTypes.number.isRequired,
+  diff: PropTypes.number,
+  color: PropTypes.string,
+  upIsGood: PropTypes.bool
 };
 
 export default Box;
