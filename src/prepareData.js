@@ -44,6 +44,13 @@ function preparData(dataInfo) {
 
           values.push(valueCurrent - valuePrevDay);
           break;
+        case "perPopulation":
+          const population = 142761;
+
+          values.push(
+            Math.round((100000 / population) * dataInfo[date].confirmed)
+          );
+          break;
         default:
       }
     }
@@ -268,6 +275,24 @@ function preparData(dataInfo) {
     data: getProcessedValues("dailyCases")
   };
 
+  const perPopulationCases = {
+    label: "Casos por 100 mil habitantes",
+    fill: false,
+    lineTension: 0.5,
+    borderColor: "#4b7bec",
+    backgroundColor: "#4b7bec",
+    borderCapStyle: "butt",
+    borderJoinStyle: "miter",
+    pointBackgroundColor: "#4b7bec",
+    pointBorderWidth: 5,
+    pointHoverRadius: 5,
+    pointHoverBackgroundColor: "#4b7bec",
+    pointHoverBorderWidth: 2,
+    pointRadius: 1,
+    pointHitRadius: 10,
+    data: getProcessedValues("perPopulation")
+  };
+
   const consolidated = {
     confirmed: getLastValues(confirmedValues.data),
     active: getLastValues(activeValues.data),
@@ -279,7 +304,12 @@ function preparData(dataInfo) {
 
   const general = {
     labels,
-    datasets: [confirmedValues, confirmedAverage, deathValues]
+    datasets: [
+      confirmedValues,
+      confirmedAverage,
+      perPopulationCases,
+      deathValues
+    ]
   };
 
   const balance = {
