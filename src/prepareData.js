@@ -34,6 +34,16 @@ function preparData(dataInfo) {
 
           values.push(Math.round(valueSum / averageDays));
           break;
+        case "dailyCases":
+          const indexPrevDay = labels.indexOf(date) - 1;
+          const datePrevDay =
+            indexPrevDay < 0 ? labels[0] : labels[indexPrevDay];
+          const valuePrevDay = dataInfo[datePrevDay].confirmed;
+
+          const valueCurrent = dataInfo[date].confirmed;
+
+          values.push(valueCurrent - valuePrevDay);
+          break;
         default:
       }
     }
@@ -240,10 +250,30 @@ function preparData(dataInfo) {
     data: getProcessedValues("active")
   };
 
+  const dailyCases = {
+    label: "Casos diários",
+    fill: false,
+    lineTension: 0.5,
+    borderColor: "#4b7bec",
+    backgroundColor: "#4b7bec",
+    borderCapStyle: "butt",
+    borderJoinStyle: "miter",
+    pointBackgroundColor: "#4b7bec",
+    pointBorderWidth: 5,
+    pointHoverRadius: 5,
+    pointHoverBackgroundColor: "#4b7bec",
+    pointHoverBorderWidth: 2,
+    pointRadius: 1,
+    pointHitRadius: 10,
+    data: getProcessedValues("dailyCases")
+  };
+
   const consolidated = {
     confirmed: getLastValues(confirmedValues.data),
     active: getLastValues(activeValues.data),
     recovered: getLastValues(recoveredValues.data),
+    nursery: getLastValues(nurseryValues.data),
+    icu: getLastValues(icuValues.data),
     death: getLastValues(deathValues.data)
   };
 
@@ -272,7 +302,12 @@ function preparData(dataInfo) {
     datasets: [nurseryValues, icuValues, activeValues]
   };
 
-  return { consolidated, general, balance, death, hospital };
+  const daily = {
+    labels,
+    datasets: [dailyCases]
+  };
+
+  return { consolidated, general, balance, death, hospital, daily };
 }
 
 export default preparData;

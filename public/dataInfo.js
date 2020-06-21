@@ -702,5 +702,49 @@ window.dataInfo = {
     death: 6,
     nursery: 13,
     icu: 14
+  },
+  "16/06/2020": {
+    notified: 481,
+    discarted: 312,
+    confirmed: 135,
+    recovered: 101,
+    waitResult: 34,
+    suspectDeath: 2,
+    death: 6,
+    nursery: 16,
+    icu: 17
+  },
+  "17/06/2020": {
+    notified: 488,
+    discarted: 313,
+    confirmed: 135,
+    recovered: 105,
+    waitResult: 40,
+    suspectDeath: 2,
+    death: 6,
+    nursery: 16,
+    icu: 18
+  },
+  "18/06/2020": {
+    notified: 499,
+    discarted: 320,
+    confirmed: 140,
+    recovered: 112,
+    waitResult: 39,
+    suspectDeath: 1,
+    death: 7,
+    nursery: 6,
+    icu: 17
+  },
+  "19/06/2020": {
+    notified: 513,
+    discarted: 327,
+    confirmed: 142,
+    recovered: 116,
+    waitResult: 44,
+    suspectDeath: 1,
+    death: 7,
+    nursery: 19,
+    icu: 17
   }
 };

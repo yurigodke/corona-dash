@@ -9,7 +9,9 @@ const AbsoluteNumbers = ({ data }) => {
   return (
     <div className={style["absoluteNumber"]}>
       <Box title="Confirmados" {...data.confirmed} color="#0fb9b1" />
-      <Box title="Em recuperação" {...data.active} color="#fa8231" />
+      <Box title="Em recuperação" {...data.active} color="#4b7bec" />
+      <Box title="Em enfermaria" {...data.nursery} color="#fa8231" />
+      <Box title="Em UTI" {...data.icu} color="#eb3b5a" />
       <Box
         title="Recuperados"
         {...data.recovered}

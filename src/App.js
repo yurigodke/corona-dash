@@ -1,7 +1,7 @@
 import React from "react";
 
 import style from "./App.module.scss";
-import { Line } from "react-chartjs-2";
+import { Line, Bar } from "react-chartjs-2";
 
 import { AbsoluteNumbers, ChartBox, Footer, Maintenance } from "./modules";
 
@@ -18,6 +18,9 @@ function App() {
         <AbsoluteNumbers data={data.consolidated} />
         <ChartBox title="Casos e óbitos diários">
           <Line data={data.general}></Line>
+        </ChartBox>
+        <ChartBox title="Casos diarios">
+          <Bar data={data.daily}></Bar>
         </ChartBox>
         <ChartBox title="Notificação de casos">
           <Line data={data.balance}></Line>
