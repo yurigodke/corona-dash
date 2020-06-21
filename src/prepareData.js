@@ -4,54 +4,53 @@ function preparData(dataInfo) {
   const getValues = key => {
     let values = [];
     for (var date in dataInfo) {
-      if (key === "active") {
-        const nurseryValueItem = dataInfo[date]["nursery"] || 0;
-        const icuValueItem = dataInfo[date]["icu"] || 0;
-        values.push(nurseryValueItem + icuValueItem);
-      } else {
-        const valueItem = dataInfo[date][key] || 0;
-        values.push(valueItem);
+      const valueItem = dataInfo[date][key] || 0;
+      values.push(valueItem);
+    }
+
+    return values;
+  };
+
+  const getProcessedValues = key => {
+    let values = [];
+
+    for (var date in dataInfo) {
+      switch (key) {
+        case "active":
+          const nurseryValueItem = dataInfo[date]["nursery"] || 0;
+          const icuValueItem = dataInfo[date]["icu"] || 0;
+          values.push(nurseryValueItem + icuValueItem);
+          break;
+        case "confirmedAverage":
+          const averageDays = 3;
+
+          let valueSum = dataInfo[date].confirmed;
+
+          for (let i = averageDays - 1; i > 0; i--) {
+            const indexSum = labels.indexOf(date) - i;
+            const dateSum = indexSum < 0 ? labels[0] : labels[indexSum];
+            valueSum += dataInfo[dateSum].confirmed;
+          }
+
+          values.push(Math.round(valueSum / averageDays));
+          break;
+        default:
       }
     }
 
     return values;
   };
 
-  const getLastValues = key => {
-    const lastDate = labels[labels.length - 1];
-    const second2LastDate = labels[labels.length - 2];
+  const getLastValues = dataInfo => {
+    const lastValue = dataInfo[dataInfo.length - 1] || 0;
+    const second2LastValue = dataInfo[dataInfo.length - 2] || 0;
 
     const returnData = {
-      value: 0,
-      diff: 0
+      value: lastValue,
+      diff: Math.round((lastValue * 100) / second2LastValue - 100)
     };
 
-    let valueItem = dataInfo[lastDate][key] || 0;
-    let valueSecondItem = dataInfo[second2LastDate][key] || 0;
-    if (key === "active") {
-      const nurseryValueItem = dataInfo[lastDate]["nursery"] || 0;
-      const nurseryValueSecondItem = dataInfo[second2LastDate]["nursery"] || 0;
-      const icuValueItem = dataInfo[lastDate]["icu"] || 0;
-      const icuValueSecondItem = dataInfo[second2LastDate]["icu"] || 0;
-
-      valueItem = nurseryValueItem + icuValueItem;
-      valueSecondItem = nurseryValueSecondItem + icuValueSecondItem;
-    } else {
-      valueItem = dataInfo[lastDate][key] || 0;
-      valueSecondItem = dataInfo[second2LastDate][key] || 0;
-    }
-
-    returnData.value = valueItem;
-    returnData.diff = Math.round((valueItem * 100) / valueSecondItem - 100);
-
     return returnData;
-  };
-
-  const consolidated = {
-    confirmed: getLastValues("confirmed"),
-    active: getLastValues("active"),
-    recovered: getLastValues("recovered"),
-    death: getLastValues("death")
   };
 
   const notifiedValues = {
@@ -103,6 +102,23 @@ function preparData(dataInfo) {
     pointRadius: 1,
     pointHitRadius: 10,
     data: getValues("confirmed")
+  };
+
+  const confirmedAverage = {
+    label: "Casos confirmados (média últimos 3 dias)",
+    fill: false,
+    lineTension: 0.5,
+    borderColor: "#f7b731",
+    borderCapStyle: "butt",
+    borderJoinStyle: "miter",
+    pointBackgroundColor: "#f7b731",
+    pointBorderWidth: 5,
+    pointHoverRadius: 5,
+    pointHoverBackgroundColor: "#f7b731",
+    pointHoverBorderWidth: 2,
+    pointRadius: 1,
+    pointHitRadius: 10,
+    data: getProcessedValues("confirmedAverage")
   };
 
   const waitResultValues = {
@@ -221,12 +237,19 @@ function preparData(dataInfo) {
     pointHoverBorderWidth: 2,
     pointRadius: 1,
     pointHitRadius: 10,
-    data: getValues("active")
+    data: getProcessedValues("active")
+  };
+
+  const consolidated = {
+    confirmed: getLastValues(confirmedValues.data),
+    active: getLastValues(activeValues.data),
+    recovered: getLastValues(recoveredValues.data),
+    death: getLastValues(deathValues.data)
   };
 
   const general = {
     labels,
-    datasets: [confirmedValues, deathValues]
+    datasets: [confirmedValues, confirmedAverage, deathValues]
   };
 
   const balance = {
