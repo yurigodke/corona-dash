@@ -26,6 +26,14 @@ const Footer = () => {
         >
           Prefeitura de Atibaia
         </a>
+        {" | "}
+        <a
+          href="https://cidades.ibge.gov.br/brasil/sp/atibaia/panorama"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          IBGE
+        </a>
       </div>
     </div>
   );
