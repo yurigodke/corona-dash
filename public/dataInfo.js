@@ -757,5 +757,27 @@ window.dataInfo = {
     death: 10,
     nursery: 18,
     icu: 14
+  },
+  "23/06/2020": {
+    notified: 544,
+    discarted: 345,
+    confirmed: 151,
+    recovered: 118,
+    waitResult: 48,
+    suspectDeath: 0,
+    death: 10,
+    nursery: 15,
+    icu: 15
+  },
+  "25/06/2020": {
+    notified: 548,
+    discarted: 357,
+    confirmed: 159,
+    recovered: 120,
+    waitResult: 32,
+    suspectDeath: 0,
+    death: 11,
+    nursery: 13,
+    icu: 16
   }
 };
