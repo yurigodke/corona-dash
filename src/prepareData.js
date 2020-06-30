@@ -60,13 +60,15 @@ class prepareData {
 
         let weekCount = 1;
         while (
-          new Date(firstDate.getTime() + 6.048e8 * weekCount).getTime() <=
+          new Date(firstDate.getTime() + 6.048e8 * weekCount).getTime() <
           lastDate.getTime()
         ) {
           const dateWeek = new Date(firstDate.getTime() + 6.048e8 * weekCount);
           labelsWeek.push(this.date2String(dateWeek));
           weekCount++;
         }
+        const dateWeek = new Date(firstDate.getTime() + 6.048e8 * weekCount);
+        labelsWeek.push(this.date2String(dateWeek));
 
         labels = labelsWeek;
         break;
