@@ -106,7 +106,12 @@ class prepareData {
   getConsolidateData = () => {
     return {
       confirmed: this.getConsolidateValue(this.getSimpleValues("confirmed")),
-      active: { value: 0, diff: 0 },
+      active: this.getConsolidateValue(
+        this.getSumData([
+          this.getSimpleValues("nursery"),
+          this.getSimpleValues("icu")
+        ])
+      ),
       recovered: this.getConsolidateValue(this.getSimpleValues("recovered")),
       nursery: this.getConsolidateValue(this.getSimpleValues("nursery")),
       icu: this.getConsolidateValue(this.getSimpleValues("icu")),
