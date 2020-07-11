@@ -802,17 +802,6 @@ window.dataInfo = {
     nursery: 13,
     icu: 16
   },
-  "29/06/2020": {
-    notified: 584,
-    discarted: 370,
-    confirmed: 174,
-    recovered: 133,
-    waitResult: 40,
-    suspectDeath: 0,
-    death: 11,
-    nursery: 13,
-    icu: 16
-  },
   "30/06/2020": {
     notified: 672,
     discarted: 390,
@@ -823,5 +812,93 @@ window.dataInfo = {
     death: 11,
     nursery: 14,
     icu: 19
+  },
+  "01/07/2020": {
+    notified: 702,
+    discarted: 396,
+    confirmed: 253,
+    recovered: 153,
+    waitResult: 53,
+    suspectDeath: 1,
+    death: 11,
+    nursery: 17,
+    icu: 20
+  },
+  "02/07/2020": {
+    notified: 713,
+    discarted: 398,
+    confirmed: 261,
+    recovered: 173,
+    waitResult: 54,
+    suspectDeath: 1,
+    death: 11,
+    nursery: 17,
+    icu: 22
+  },
+  "03/07/2020": {
+    notified: 719,
+    discarted: 404,
+    confirmed: 265,
+    recovered: 175,
+    waitResult: 50,
+    suspectDeath: 0,
+    death: 11,
+    nursery: 17,
+    icu: 22
+  },
+  "06/07/2020": {
+    notified: 725,
+    discarted: 404,
+    confirmed: 272,
+    recovered: 181,
+    waitResult: 49,
+    suspectDeath: 0,
+    death: 11,
+    nursery: 17,
+    icu: 22
+  },
+  "07/07/2020": {
+    notified: 746,
+    discarted: 419,
+    confirmed: 286,
+    recovered: 202,
+    waitResult: 41,
+    suspectDeath: 0,
+    death: 13,
+    nursery: 27,
+    icu: 19
+  },
+  "08/07/2020": {
+    notified: 766,
+    discarted: 423,
+    confirmed: 291,
+    recovered: 207,
+    waitResult: 52,
+    suspectDeath: 0,
+    death: 13,
+    nursery: 30,
+    icu: 15
+  },
+  "09/07/2020": {
+    notified: 824,
+    discarted: 424,
+    confirmed: 309,
+    recovered: 215,
+    waitResult: 91,
+    suspectDeath: 1,
+    death: 13,
+    nursery: 30,
+    icu: 17
+  },
+  "10/07/2020": {
+    notified: 854,
+    discarted: 434,
+    confirmed: 337,
+    recovered: 242,
+    waitResult: 81,
+    suspectDeath: 1,
+    death: 13,
+    nursery: 28,
+    icu: 18
   }
 };
