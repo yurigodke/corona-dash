@@ -1,0 +1,42 @@
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1001;
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 30px 40px;
+    max-width: 400px;
+    width: calc(100% - 40px);
+    border-radius: 20px;
+    font-family: "Lato", sans-serif;
+    box-sizing: border-box;
+
+    &__text {
+      color: #666;
+      line-height: 150%;
+    }
+
+    &__button {
+      font-size: 16px;
+      background: #fff;
+      margin: 20px 10px 10px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: 1px #fff solid;
+      cursor: pointer;
+      border: 1px #190f52 solid;
+    }
+  }
+}
