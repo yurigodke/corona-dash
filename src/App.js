@@ -4,13 +4,7 @@ import classNames from "classnames";
 import style from "./App.module.scss";
 import { Line, Bar } from "react-chartjs-2";
 
-import {
-  AbsoluteNumbers,
-  ChartBox,
-  Footer,
-  Maintenance,
-  Popup
-} from "./modules";
+import { AbsoluteNumbers, ChartBox, Footer, Maintenance } from "./modules";
 
 import prepareData from "./prepareData.js";
 
@@ -59,7 +53,6 @@ class App extends PureComponent {
       if (dataType === "raw") {
         content = (
           <>
-            <Popup />
             <AbsoluteNumbers data={dataConsolidation} />
             {navigationGroup}
             <ChartBox title="Casos e óbitos diários">
